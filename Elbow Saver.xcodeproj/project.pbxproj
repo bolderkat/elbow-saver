@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */; };
+		65B1BB4826D429EA00334C74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4726D429EA00334C74 /* ContentView.swift */; };
+		65B1BB4A26D429EB00334C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4926D429EB00334C74 /* Assets.xcassets */; };
+		65B1BB4D26D429EB00334C74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */; };
+		65B1BB5726D429EB00334C74 /* Elbow_SaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB5626D429EB00334C74 /* Elbow_SaverTests.swift */; };
+		65B1BB6126D429EB00334C74 /* Elbow_SaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */; };
+		65B1BB6326D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65B1BB5326D429EB00334C74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B1BB3A26D429EA00334C74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B1BB4126D429EA00334C74;
+			remoteInfo = "Elbow Saver";
+		};
+		65B1BB5D26D429EB00334C74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B1BB3A26D429EA00334C74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B1BB4126D429EA00334C74;
+			remoteInfo = "Elbow Saver";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65B1BB4226D429EA00334C74 /* Elbow Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elbow Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverApp.swift; sourceTree = "<group>"; };
+		65B1BB4726D429EA00334C74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		65B1BB4926D429EB00334C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		65B1BB5226D429EB00334C74 /* Elbow SaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B1BB5626D429EB00334C74 /* Elbow_SaverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverTests.swift; sourceTree = "<group>"; };
+		65B1BB5C26D429EB00334C74 /* Elbow SaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITests.swift; sourceTree = "<group>"; };
+		65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65B1BB3F26D429EA00334C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B1BB4F26D429EB00334C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B1BB5926D429EB00334C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65B1BB3926D429EA00334C74 = {
+			isa = PBXGroup;
+			children = (
+				65B1BB4426D429EA00334C74 /* Elbow Saver */,
+				65B1BB5526D429EB00334C74 /* Elbow SaverTests */,
+				65B1BB5F26D429EB00334C74 /* Elbow SaverUITests */,
+				65B1BB4326D429EA00334C74 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65B1BB4326D429EA00334C74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB4226D429EA00334C74 /* Elbow Saver.app */,
+				65B1BB5226D429EB00334C74 /* Elbow SaverTests.xctest */,
+				65B1BB5C26D429EB00334C74 /* Elbow SaverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65B1BB4426D429EA00334C74 /* Elbow Saver */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */,
+				65B1BB4726D429EA00334C74 /* ContentView.swift */,
+				65B1BB4926D429EB00334C74 /* Assets.xcassets */,
+				65B1BB4B26D429EB00334C74 /* Preview Content */,
+			);
+			path = "Elbow Saver";
+			sourceTree = "<group>";
+		};
+		65B1BB4B26D429EB00334C74 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		65B1BB5526D429EB00334C74 /* Elbow SaverTests */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB5626D429EB00334C74 /* Elbow_SaverTests.swift */,
+			);
+			path = "Elbow SaverTests";
+			sourceTree = "<group>";
+		};
+		65B1BB5F26D429EB00334C74 /* Elbow SaverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */,
+				65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */,
+			);
+			path = "Elbow SaverUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65B1BB4126D429EA00334C74 /* Elbow Saver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B1BB6626D429EB00334C74 /* Build configuration list for PBXNativeTarget "Elbow Saver" */;
+			buildPhases = (
+				65B1BB3E26D429EA00334C74 /* Sources */,
+				65B1BB3F26D429EA00334C74 /* Frameworks */,
+				65B1BB4026D429EA00334C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Elbow Saver";
+			productName = "Elbow Saver";
+			productReference = 65B1BB4226D429EA00334C74 /* Elbow Saver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65B1BB5126D429EB00334C74 /* Elbow SaverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B1BB6926D429EB00334C74 /* Build configuration list for PBXNativeTarget "Elbow SaverTests" */;
+			buildPhases = (
+				65B1BB4E26D429EB00334C74 /* Sources */,
+				65B1BB4F26D429EB00334C74 /* Frameworks */,
+				65B1BB5026D429EB00334C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B1BB5426D429EB00334C74 /* PBXTargetDependency */,
+			);
+			name = "Elbow SaverTests";
+			productName = "Elbow SaverTests";
+			productReference = 65B1BB5226D429EB00334C74 /* Elbow SaverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65B1BB5B26D429EB00334C74 /* Elbow SaverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B1BB6C26D429EB00334C74 /* Build configuration list for PBXNativeTarget "Elbow SaverUITests" */;
+			buildPhases = (
+				65B1BB5826D429EB00334C74 /* Sources */,
+				65B1BB5926D429EB00334C74 /* Frameworks */,
+				65B1BB5A26D429EB00334C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B1BB5E26D429EB00334C74 /* PBXTargetDependency */,
+			);
+			name = "Elbow SaverUITests";
+			productName = "Elbow SaverUITests";
+			productReference = 65B1BB5C26D429EB00334C74 /* Elbow SaverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65B1BB3A26D429EA00334C74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					65B1BB4126D429EA00334C74 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					65B1BB5126D429EB00334C74 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 65B1BB4126D429EA00334C74;
+					};
+					65B1BB5B26D429EB00334C74 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 65B1BB4126D429EA00334C74;
+					};
+				};
+			};
+			buildConfigurationList = 65B1BB3D26D429EA00334C74 /* Build configuration list for PBXProject "Elbow Saver" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65B1BB3926D429EA00334C74;
+			productRefGroup = 65B1BB4326D429EA00334C74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65B1BB4126D429EA00334C74 /* Elbow Saver */,
+				65B1BB5126D429EB00334C74 /* Elbow SaverTests */,
+				65B1BB5B26D429EB00334C74 /* Elbow SaverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65B1BB4026D429EA00334C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B1BB4D26D429EB00334C74 /* Preview Assets.xcassets in Resources */,
+				65B1BB4A26D429EB00334C74 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B1BB5026D429EB00334C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B1BB5A26D429EB00334C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65B1BB3E26D429EA00334C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B1BB4826D429EA00334C74 /* ContentView.swift in Sources */,
+				65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B1BB4E26D429EB00334C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B1BB5726D429EB00334C74 /* Elbow_SaverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B1BB5826D429EB00334C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B1BB6326D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift in Sources */,
+				65B1BB6126D429EB00334C74 /* Elbow_SaverUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65B1BB5426D429EB00334C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B1BB4126D429EA00334C74 /* Elbow Saver */;
+			targetProxy = 65B1BB5326D429EB00334C74 /* PBXContainerItemProxy */;
+		};
+		65B1BB5E26D429EB00334C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B1BB4126D429EA00334C74 /* Elbow Saver */;
+			targetProxy = 65B1BB5D26D429EB00334C74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		65B1BB6426D429EB00334C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65B1BB6526D429EB00334C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65B1BB6726D429EB00334C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Elbow Saver/Preview Content\"";
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.dangiesoft.Elbow-Saver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65B1BB6826D429EB00334C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Elbow Saver/Preview Content\"";
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.dangiesoft.Elbow-Saver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		65B1BB6A26D429EB00334C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.dangiesoft.Elbow-SaverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elbow Saver.app/Elbow Saver";
+			};
+			name = Debug;
+		};
+		65B1BB6B26D429EB00334C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.dangiesoft.Elbow-SaverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elbow Saver.app/Elbow Saver";
+			};
+			name = Release;
+		};
+		65B1BB6D26D429EB00334C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.dangiesoft.Elbow-SaverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Elbow Saver";
+			};
+			name = Debug;
+		};
+		65B1BB6E26D429EB00334C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.dangiesoft.Elbow-SaverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Elbow Saver";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65B1BB3D26D429EA00334C74 /* Build configuration list for PBXProject "Elbow Saver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B1BB6426D429EB00334C74 /* Debug */,
+				65B1BB6526D429EB00334C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B1BB6626D429EB00334C74 /* Build configuration list for PBXNativeTarget "Elbow Saver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B1BB6726D429EB00334C74 /* Debug */,
+				65B1BB6826D429EB00334C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B1BB6926D429EB00334C74 /* Build configuration list for PBXNativeTarget "Elbow SaverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B1BB6A26D429EB00334C74 /* Debug */,
+				65B1BB6B26D429EB00334C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B1BB6C26D429EB00334C74 /* Build configuration list for PBXNativeTarget "Elbow SaverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B1BB6D26D429EB00334C74 /* Debug */,
+				65B1BB6E26D429EB00334C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65B1BB3A26D429EA00334C74 /* Project object */;
+}
