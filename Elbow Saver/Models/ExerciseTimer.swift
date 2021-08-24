@@ -12,7 +12,7 @@ class ExerciseTimer: ObservableObject {
     /// The number of eccentric repetitions per set of exercise.
     static let repsPerSet: Int = 3
     /// The duration over which each rep is to be performed.
-    static let secondsPerRep: Int = 5
+    static let secondsPerRep: Int = 4
     /// The duration between reps during which user returns to the exercise start position
     static let secondsBetweenReps: Int = 1
     
@@ -83,11 +83,12 @@ class ExerciseTimer: ObservableObject {
         case .stopped:
             return
         case .performingRep:
-            if secondsRemainingForRep <= 1,
+            if secondsRemainingForRep <= 0,
                currentRep < Self.repsPerSet {
                 // Finished a rep, but still have reps to go in the set
                 currentTimerState = .betweenReps
-            } else if secondsRemainingForRep <= 1,
+                secondsRemainingForRep = Self.secondsPerRep
+            } else if secondsRemainingForRep <= 0,
                       currentRep == Self.repsPerSet {
                 // Finished the final rep of the set
                 finishSet()
@@ -95,14 +96,13 @@ class ExerciseTimer: ObservableObject {
                 secondsRemainingForRep -= 1
             }
         case .betweenReps:
+            // Condition triggered at 1 to shorten reset period between reps
             if secondsRemainingBetweenReps <= 1 {
                 startNewRep()
             } else {
                 secondsRemainingBetweenReps -= 1
             }
         case .betweenSets:
-            // This condition triggers at 0 sec remaining (vs 1 in other conditions above)
-            // to give user some extra time to react and reposition after rest period
             if secondsRemainingInRestPeriod <= 0 {
                 startNewSet()
             } else {
@@ -113,9 +113,9 @@ class ExerciseTimer: ObservableObject {
     
     private func startNewRep() {
         currentTimerState = .performingRep
-        currentRep += 1
         secondsRemainingForRep = Self.secondsPerRep
         secondsRemainingBetweenReps = Self.secondsBetweenReps
+        currentRep += 1
     }
     
     private func finishSet() {

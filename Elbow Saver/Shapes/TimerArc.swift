@@ -8,18 +8,28 @@
 import SwiftUI
 
 struct TimerArc: Shape {
-    let secondsRemaining: Int
-    let totalSeconds: Int
+    var secondsRemaining: Double
+    let totalSeconds: Double
+    
+    init(secondsRemaining: Int, totalSeconds: Int) {
+        self.secondsRemaining = Double(secondsRemaining)
+        self.totalSeconds = Double(totalSeconds)
+    }
+    
+    var animatableData: Double {
+        get { return secondsRemaining }
+        set { secondsRemaining = newValue }
+    }
     
     private var degreesPerSecond: Double {
-        360.0 / Double(totalSeconds)
+        360.0 / totalSeconds
     }
     private var startAngle: Angle {
         Angle(degrees: 0)
     }
     
     private var endAngle: Angle {
-        Angle(degrees: Double(secondsRemaining) * degreesPerSecond)
+        Angle(degrees: secondsRemaining * degreesPerSecond)
     }
     
     func path(in rect: CGRect) -> Path {
