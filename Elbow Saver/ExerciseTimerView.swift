@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct ExerciseTimerView: View {
+    private enum Parameters {
+        static let arcStrokeWidth: CGFloat = 24.0
+    }
+    
     @StateObject private var exerciseTimer = ExerciseTimer(totalNumberOfSets: 3, restPeriodInSeconds: 10)
-    var timeText: String {
+    
+    var body: some View {
+        ZStack {
+            backgroundColor
+                .edgesIgnoringSafeArea(.all)
+            TimerArc(secondsRemaining: secondsRemaining, totalSeconds: totalSeconds)
+                .stroke(.white, lineWidth: Parameters.arcStrokeWidth)
+                .rotationEffect(Angle(degrees: -90))
+                .padding()
+            VStack {
+                Text(timeText)
+                    .font(.largeTitle)
+                    .padding()
+                Text("Reps: \(exerciseTimer.currentRep)/\(ExerciseTimer.repsPerSet)")
+                Text("Sets: \(exerciseTimer.currentSet)/\(exerciseTimer.totalNumberOfSets)")
+            }
+            .foregroundColor(.white)
+        }
+        .onAppear {
+            exerciseTimer.startSession()
+        }
+    }
+    
+    private var timeText: String {
         switch exerciseTimer.currentTimerState {
         case .stopped:
             return "Stopped"
@@ -22,7 +49,7 @@ struct ExerciseTimerView: View {
         }
     }
     
-    var backgroundColor: Color {
+    private var backgroundColor: Color {
         switch exerciseTimer.currentTimerState {
         case .stopped:
             return .red
@@ -34,24 +61,35 @@ struct ExerciseTimerView: View {
             return .blue
         }
     }
-    var body: some View {
-        ZStack {
-            backgroundColor
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-            Text(timeText)
-                .font(.largeTitle)
-                .padding()
-                .onAppear {
-                    exerciseTimer.startSession()
-                }
-                Text("Reps: \(exerciseTimer.currentRep)/\(ExerciseTimer.repsPerSet)")
-                Text("Sets: \(exerciseTimer.currentSet)/\(exerciseTimer.totalNumberOfSets)")
-                
-            }
-            .foregroundColor(.white)
+    
+    // For calculation of arc
+    private var secondsRemaining: Int {
+        switch exerciseTimer.currentTimerState {
+        case .stopped:
+            return 0
+        case .performingRep:
+            return exerciseTimer.secondsRemainingForRep
+        case .betweenReps:
+            return ExerciseTimer.secondsBetweenReps // always show full circle for reset phase
+        case .betweenSets:
+            return exerciseTimer.secondsRemainingInRestPeriod
         }
     }
+    
+    // For calculation of arc
+    private var totalSeconds: Int {
+        switch exerciseTimer.currentTimerState {
+        case .stopped:
+            return 1
+        case .performingRep:
+            return ExerciseTimer.secondsPerRep
+        case .betweenReps:
+            return ExerciseTimer.secondsBetweenReps
+        case .betweenSets:
+            return exerciseTimer.restPeriodInSeconds
+        }
+    }
+    
 }
 
 struct ExerciseTimerView_Previews: PreviewProvider {

@@ -87,7 +87,7 @@ class ExerciseTimer: ObservableObject {
                currentRep < Self.repsPerSet {
                 // Finished a rep, but still have reps to go in the set
                 currentTimerState = .betweenReps
-            } else if secondsRemainingForRep <= 0,
+            } else if secondsRemainingForRep <= 1,
                       currentRep == Self.repsPerSet {
                 // Finished the final rep of the set
                 finishSet()
@@ -95,12 +95,14 @@ class ExerciseTimer: ObservableObject {
                 secondsRemainingForRep -= 1
             }
         case .betweenReps:
-            if secondsRemainingBetweenReps <= 0 {
+            if secondsRemainingBetweenReps <= 1 {
                 startNewRep()
             } else {
                 secondsRemainingBetweenReps -= 1
             }
         case .betweenSets:
+            // This condition triggers at 0 sec remaining (vs 1 in other conditions above)
+            // to give user some extra time to react and reposition after rest period
             if secondsRemainingInRestPeriod <= 0 {
                 startNewSet()
             } else {

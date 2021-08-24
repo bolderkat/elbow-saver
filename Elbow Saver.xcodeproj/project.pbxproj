@@ -15,6 +15,7 @@
 		65B1BB6126D429EB00334C74 /* Elbow_SaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */; };
 		65B1BB6326D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */; };
 		65B1BB7126D4324200334C74 /* ExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7026D4324200334C74 /* ExerciseTimer.swift */; };
+		65B1BB7426D49D4B00334C74 /* TimerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7326D49D4B00334C74 /* TimerArc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITests.swift; sourceTree = "<group>"; };
 		65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		65B1BB7026D4324200334C74 /* ExerciseTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimer.swift; sourceTree = "<group>"; };
+		65B1BB7326D49D4B00334C74 /* TimerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */,
 				65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */,
+				65B1BB7226D49D3B00334C74 /* Shapes */,
 				65B1BB6F26D4322900334C74 /* Models */,
 				65B1BB4926D429EB00334C74 /* Assets.xcassets */,
 				65B1BB4B26D429EB00334C74 /* Preview Content */,
@@ -136,6 +139,14 @@
 				65B1BB7026D4324200334C74 /* ExerciseTimer.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		65B1BB7226D49D3B00334C74 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB7326D49D4B00334C74 /* TimerArc.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B1BB7426D49D4B00334C74 /* TimerArc.swift in Sources */,
 				65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */,
 				65B1BB7126D4324200334C74 /* ExerciseTimer.swift in Sources */,
 				65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */,
