@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */; };
-		65B1BB4826D429EA00334C74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4726D429EA00334C74 /* ContentView.swift */; };
+		65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */; };
 		65B1BB4A26D429EB00334C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4926D429EB00334C74 /* Assets.xcassets */; };
 		65B1BB4D26D429EB00334C74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */; };
 		65B1BB5726D429EB00334C74 /* Elbow_SaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB5626D429EB00334C74 /* Elbow_SaverTests.swift */; };
 		65B1BB6126D429EB00334C74 /* Elbow_SaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */; };
 		65B1BB6326D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */; };
+		65B1BB7126D4324200334C74 /* ExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7026D4324200334C74 /* ExerciseTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		65B1BB4226D429EA00334C74 /* Elbow Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elbow Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverApp.swift; sourceTree = "<group>"; };
-		65B1BB4726D429EA00334C74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimerView.swift; sourceTree = "<group>"; };
 		65B1BB4926D429EB00334C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		65B1BB5226D429EB00334C74 /* Elbow SaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		65B1BB5C26D429EB00334C74 /* Elbow SaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITests.swift; sourceTree = "<group>"; };
 		65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		65B1BB7026D4324200334C74 /* ExerciseTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */,
-				65B1BB4726D429EA00334C74 /* ContentView.swift */,
+				65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */,
+				65B1BB6F26D4322900334C74 /* Models */,
 				65B1BB4926D429EB00334C74 /* Assets.xcassets */,
 				65B1BB4B26D429EB00334C74 /* Preview Content */,
 			);
@@ -125,6 +128,14 @@
 				65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */,
 			);
 			path = "Elbow SaverUITests";
+			sourceTree = "<group>";
+		};
+		65B1BB6F26D4322900334C74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB7026D4324200334C74 /* ExerciseTimer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B1BB4826D429EA00334C74 /* ContentView.swift in Sources */,
+				65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */,
+				65B1BB7126D4324200334C74 /* ExerciseTimer.swift in Sources */,
 				65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

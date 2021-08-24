@@ -11,7 +11,7 @@ import SwiftUI
 struct Elbow_SaverApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ExerciseTimerView()
         }
     }
 }
