@@ -50,8 +50,12 @@ class ExerciseTimer: ObservableObject {
     private var setsCompleted = 0
     
     /**
-     Initialize a new exercise timer, guiding the user to perform the specified number of sets with the selected rest interval between each set.
+     Initialize a new exercise timer, guiding the user through exercise sesssion.
      Call `startSession()` to begin timing the session.
+     
+     - Parameters:
+        - totalNumberOfSets: The number of sets of exercise to be performed during the session
+        - restPeriodInSeconds: The length of the rest interval between each set
      */
     init(totalNumberOfSets: Int, restPeriodInSeconds: Int) {
         self.totalNumberOfSets = totalNumberOfSets
