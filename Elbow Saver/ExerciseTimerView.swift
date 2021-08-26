@@ -11,6 +11,7 @@ struct ExerciseTimerView: View {
     private enum Parameters {
         static let arcStrokeWidth: CGFloat = 24.0
         static let arcPadding: CGFloat = 20.0
+        static let timerArcRotation: Double = -90.0
     }
     
     @StateObject private var exerciseTimer = ExerciseTimer(totalNumberOfSets: 3, restPeriodInSeconds: 8)
@@ -21,7 +22,7 @@ struct ExerciseTimerView: View {
                 .edgesIgnoringSafeArea(.all)
             TimerArc(secondsRemaining: secondsRemaining, totalSeconds: totalSeconds)
                 .stroke(.white, lineWidth: Parameters.arcStrokeWidth)
-                .rotationEffect(Angle(degrees: -90))
+                .rotationEffect(Angle(degrees: Parameters.timerArcRotation))
                 .animation(.easeInOut)
                 .padding(Parameters.arcPadding)
             VStack {
