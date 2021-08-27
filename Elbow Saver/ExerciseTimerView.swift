@@ -35,8 +35,8 @@ struct ExerciseTimerView: View {
                 Text(timeText)
                     .font(.largeTitle)
                     .padding()
-                Text("\(exerciseTimer.currentRep)/\(ExerciseTimerViewModel.repsPerSet) Reps")
-                Text("\(exerciseTimer.currentSet)/\(exerciseTimer.sessionSettings.totalNumberOfSets) Sets")
+                Text(Strings.Timer.repCounter(currentRep: exerciseTimer.currentRep, totalRepsInSet: ExerciseTimerViewModel.repsPerSet))
+                Text(Strings.Timer.setCounter(currentSet: exerciseTimer.currentSet, totalSetsInSession: exerciseTimer.sessionSettings.totalNumberOfSets))
             }
             .foregroundColor(.white)
         }
@@ -48,13 +48,13 @@ struct ExerciseTimerView: View {
     private var timeText: String {
         switch exerciseTimer.currentTimerState {
         case .stopped:
-            return "Stopped"
+            return Strings.Timer.stopped
         case .performingRep:
             return "\(exerciseTimer.secondsRemainingForRep)"
         case .betweenReps:
-            return "RESET"
+            return Strings.Timer.reset
         case .betweenSets:
-            return "REST: \(exerciseTimer.secondsRemainingInRestPeriod)"
+            return Strings.Timer.restWith(timeRemaining: exerciseTimer.secondsRemainingInRestPeriod)
         }
     }
     
