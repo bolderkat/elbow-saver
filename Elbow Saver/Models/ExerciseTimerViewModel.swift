@@ -1,14 +1,15 @@
 //
-//  ExerciseTimer.swift
-//  ExerciseTimer
+//  ExerciseTimerViewModel.swift
+//  ExerciseTimerViewModel
 //
 //  Created by Daniel Luo on 8/23/21.
 //
 
 import Foundation
 
-class ExerciseTimer: ObservableObject {
+class ExerciseTimerViewModel: ObservableObject {
     
+    // Fixed values, not user-adjustable
     /// The number of eccentric repetitions per set of exercise.
     static let repsPerSet: Int = 3
     /// The duration over which each rep is to be performed.
@@ -16,10 +17,20 @@ class ExerciseTimer: ObservableObject {
     /// The duration between reps during which user returns to the exercise start position
     static let secondsBetweenReps: Int = 1
     
-    /// Total number of sets of exercise to be performed in this session
-    let totalNumberOfSets: Int
-    /// Amount of time user gets to rest between exercise sets
-    let restPeriodInSeconds: Int
+    /// Settings for session including total number of sets, rest period between sets.
+    let sessionSettings: ExerciseSessionSettings
+    
+    /**
+     Initialize a new exercise timer, guiding the user through exercise sesssion.
+     Call `startSession()` to begin timing the session.
+     
+     - Parameters:
+        - sessionSettings: A struct containing settings for the exercise session. 
+     */
+    init(sessionSettings: ExerciseSessionSettings) {
+        self.sessionSettings = sessionSettings
+        secondsRemainingInRestPeriod = sessionSettings.restPeriodInSeconds
+    }
     
     /// The current set of exercise session
     @Published private(set) var currentSet: Int = 1
@@ -49,23 +60,10 @@ class ExerciseTimer: ObservableObject {
     private var frequency: TimeInterval = 1.0
     private var setsCompleted = 0
     
-    /**
-     Initialize a new exercise timer, guiding the user through exercise sesssion.
-     Call `startSession()` to begin timing the session.
-     
-     - Parameters:
-        - totalNumberOfSets: The number of sets of exercise to be performed during the session
-        - restPeriodInSeconds: The length of the rest interval between each set
-     */
-    init(totalNumberOfSets: Int, restPeriodInSeconds: Int) {
-        self.totalNumberOfSets = totalNumberOfSets
-        self.restPeriodInSeconds = restPeriodInSeconds
-        secondsRemainingInRestPeriod = restPeriodInSeconds
-    }
     
     /// Start the exercise session and timer
     func startSession() {
-        guard setsCompleted < totalNumberOfSets else { return }
+        guard setsCompleted < sessionSettings.totalNumberOfSets else { return }
         currentTimerState = .performingRep
         
         timer = Timer.scheduledTimer(withTimeInterval: frequency, repeats: true) { [weak self] timer in
@@ -124,7 +122,7 @@ class ExerciseTimer: ObservableObject {
     
     private func finishSet() {
         setsCompleted += 1
-        if setsCompleted == totalNumberOfSets {
+        if setsCompleted == sessionSettings.totalNumberOfSets {
             stopSession()
         } else {
             currentTimerState = .betweenSets
@@ -134,7 +132,7 @@ class ExerciseTimer: ObservableObject {
     private func startNewSet() {
         currentSet += 1
         currentRep = 0
-        secondsRemainingInRestPeriod = restPeriodInSeconds
+        secondsRemainingInRestPeriod = sessionSettings.restPeriodInSeconds
         startNewRep()
     }
 }

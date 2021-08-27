@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		658124EC26D8A76500B77892 /* ExerciseSessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658124EB26D8A76500B77892 /* ExerciseSessionSettings.swift */; };
 		65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */; };
 		65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */; };
 		65B1BB4A26D429EB00334C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4926D429EB00334C74 /* Assets.xcassets */; };
@@ -14,7 +15,7 @@
 		65B1BB5726D429EB00334C74 /* Elbow_SaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB5626D429EB00334C74 /* Elbow_SaverTests.swift */; };
 		65B1BB6126D429EB00334C74 /* Elbow_SaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */; };
 		65B1BB6326D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */; };
-		65B1BB7126D4324200334C74 /* ExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7026D4324200334C74 /* ExerciseTimer.swift */; };
+		65B1BB7126D4324200334C74 /* ExerciseTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7026D4324200334C74 /* ExerciseTimerViewModel.swift */; };
 		65B1BB7426D49D4B00334C74 /* TimerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7326D49D4B00334C74 /* TimerArc.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		658124EB26D8A76500B77892 /* ExerciseSessionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSessionSettings.swift; sourceTree = "<group>"; };
 		65B1BB4226D429EA00334C74 /* Elbow Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elbow Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverApp.swift; sourceTree = "<group>"; };
 		65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimerView.swift; sourceTree = "<group>"; };
@@ -46,7 +48,7 @@
 		65B1BB5C26D429EB00334C74 /* Elbow SaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITests.swift; sourceTree = "<group>"; };
 		65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		65B1BB7026D4324200334C74 /* ExerciseTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimer.swift; sourceTree = "<group>"; };
+		65B1BB7026D4324200334C74 /* ExerciseTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimerViewModel.swift; sourceTree = "<group>"; };
 		65B1BB7326D49D4B00334C74 /* TimerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +138,8 @@
 		65B1BB6F26D4322900334C74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				65B1BB7026D4324200334C74 /* ExerciseTimer.swift */,
+				65B1BB7026D4324200334C74 /* ExerciseTimerViewModel.swift */,
+				658124EB26D8A76500B77892 /* ExerciseSessionSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,7 +284,8 @@
 			files = (
 				65B1BB7426D49D4B00334C74 /* TimerArc.swift in Sources */,
 				65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */,
-				65B1BB7126D4324200334C74 /* ExerciseTimer.swift in Sources */,
+				658124EC26D8A76500B77892 /* ExerciseSessionSettings.swift in Sources */,
+				65B1BB7126D4324200334C74 /* ExerciseTimerViewModel.swift in Sources */,
 				65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

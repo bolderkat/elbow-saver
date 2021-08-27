@@ -14,7 +14,13 @@ struct ExerciseTimerView: View {
         static let timerArcRotation: Double = -90.0
     }
     
-    @StateObject private var exerciseTimer = ExerciseTimer(totalNumberOfSets: 3, restPeriodInSeconds: 8)
+    // Using temporary values for exercise session settings
+    @StateObject private var exerciseTimer = ExerciseTimerViewModel(
+        sessionSettings: ExerciseSessionSettings(
+            totalNumberOfSets: 3,
+            restPeriodInSeconds: 8
+        )
+    )
     
     var body: some View {
         ZStack {
@@ -29,8 +35,8 @@ struct ExerciseTimerView: View {
                 Text(timeText)
                     .font(.largeTitle)
                     .padding()
-                Text("\(exerciseTimer.currentRep)/\(ExerciseTimer.repsPerSet) Reps")
-                Text("\(exerciseTimer.currentSet)/\(exerciseTimer.totalNumberOfSets) Sets")
+                Text("\(exerciseTimer.currentRep)/\(ExerciseTimerViewModel.repsPerSet) Reps")
+                Text("\(exerciseTimer.currentSet)/\(exerciseTimer.sessionSettings.totalNumberOfSets) Sets")
             }
             .foregroundColor(.white)
         }
@@ -83,9 +89,9 @@ struct ExerciseTimerView: View {
         case .stopped:
             return 1
         case .performingRep, .betweenReps:
-            return ExerciseTimer.secondsPerRep
+            return ExerciseTimerViewModel.secondsPerRep
         case .betweenSets:
-            return exerciseTimer.restPeriodInSeconds
+            return exerciseTimer.sessionSettings.restPeriodInSeconds
         }
     }
     
