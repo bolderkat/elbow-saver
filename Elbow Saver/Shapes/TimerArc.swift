@@ -22,7 +22,12 @@ struct TimerArc: Shape {
     }
     
     private var degreesPerSecond: Double {
-        360.0 / totalSeconds
+        guard totalSeconds != 0 else {
+            assertionFailure("Unable to divide by 0")
+            return 0.0
+        }
+        let degreesInCircle = 360.0
+        return degreesInCircle / totalSeconds
     }
     private var startAngle: Angle {
         Angle(degrees: 0)
