@@ -18,17 +18,22 @@ class ExerciseTimerViewModel: ObservableObject {
     static let secondsBetweenReps: Int = 1
     
     /// Settings for session including total number of sets, rest period between sets.
-    let sessionSettings: ExerciseSessionSettings
+    private let sessionSettings: ExerciseSessionSettings
+    var totalNumberOfSets: Int {
+        sessionSettings.totalNumberOfSets
+    }
+    var restPeriodInSeconds: Int {
+        sessionSettings.restPeriodInSeconds
+    }
     
     /**
      Initialize a new exercise timer, guiding the user through exercise sesssion.
      Call `startSession()` to begin timing the session.
      
-     - Parameters:
-        - sessionSettings: A struct containing settings for the exercise session. 
+     Currently initializes sessionSettings with sample values, eventually will pull settings from persistent store.
      */
-    init(sessionSettings: ExerciseSessionSettings) {
-        self.sessionSettings = sessionSettings
+    init() {
+        self.sessionSettings = ExerciseSessionSettings(totalNumberOfSets: 3, restPeriodInSeconds: 8)
         secondsRemainingInRestPeriod = sessionSettings.restPeriodInSeconds
     }
     
@@ -67,9 +72,8 @@ class ExerciseTimerViewModel: ObservableObject {
         currentTimerState = .performingRep
         
         timer = Timer.scheduledTimer(withTimeInterval: frequency, repeats: true) { [weak self] timer in
-            if let self = self {
-                self.update()
-            }
+            guard let self = self else { return }
+            self.update()
         }
     }
     

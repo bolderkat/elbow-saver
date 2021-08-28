@@ -15,12 +15,7 @@ struct ExerciseTimerView: View {
     }
     
     // Using temporary values for exercise session settings
-    @StateObject private var exerciseTimer = ExerciseTimerViewModel(
-        sessionSettings: ExerciseSessionSettings(
-            totalNumberOfSets: 3,
-            restPeriodInSeconds: 8
-        )
-    )
+    @StateObject private var exerciseTimer = ExerciseTimerViewModel()
     
     var body: some View {
         ZStack {
@@ -36,7 +31,7 @@ struct ExerciseTimerView: View {
                     .font(.largeTitle)
                     .padding()
                 Text(Strings.Timer.repsCounter(currentRep: exerciseTimer.currentRep, totalRepsInSet: ExerciseTimerViewModel.repsPerSet))
-                Text(Strings.Timer.setsCounter(currentSet: exerciseTimer.currentSet, totalSetsInSession: exerciseTimer.sessionSettings.totalNumberOfSets))
+                Text(Strings.Timer.setsCounter(currentSet: exerciseTimer.currentSet, totalSetsInSession: exerciseTimer.totalNumberOfSets))
             }
             .foregroundColor(.white)
         }
@@ -91,7 +86,7 @@ struct ExerciseTimerView: View {
         case .performingRep, .betweenReps:
             return ExerciseTimerViewModel.secondsPerRep
         case .betweenSets:
-            return exerciseTimer.sessionSettings.restPeriodInSeconds
+            return exerciseTimer.restPeriodInSeconds
         }
     }
     
