@@ -52,9 +52,9 @@ struct ExerciseTimerView: View {
         case .performingRep:
             return "\(exerciseTimer.secondsRemainingForRep)"
         case .betweenReps:
-            return Strings.Timer.reset
+            return Strings.Timer.reset.uppercased()
         case .betweenSets:
-            return Strings.Timer.restWith(timeRemaining: exerciseTimer.secondsRemainingInRestPeriod)
+            return Strings.Timer.restWith(timeRemaining: exerciseTimer.secondsRemainingInRestPeriod).uppercased()
         }
     }
     
