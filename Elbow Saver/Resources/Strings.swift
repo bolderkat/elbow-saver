@@ -33,9 +33,9 @@ enum Strings {
             )
             return String.localizedStringWithFormat(formatString, timeRemaining)
         }
-        static func repCounter(currentRep: Int, totalRepsInSet: Int) -> String {
+        static func repsCounter(currentRep: Int, totalRepsInSet: Int) -> String {
             let formatString = NSLocalizedString(
-                "timer-rep-counter",
+                "timer-reps-counter",
                 tableName: nil,
                 bundle: Bundle.main,
                 value: "%ld/%ld Reps",
@@ -43,9 +43,9 @@ enum Strings {
             )
             return String.localizedStringWithFormat(formatString, currentRep, totalRepsInSet)
         }
-        static func setCounter(currentSet: Int, totalSetsInSession: Int) -> String {
+        static func setsCounter(currentSet: Int, totalSetsInSession: Int) -> String {
             let formatString = NSLocalizedString(
-                "timer-set-counter",
+                "timer-sets-counter",
                 tableName: nil,
                 bundle: Bundle.main,
                 value: "%ld/%ld Sets",

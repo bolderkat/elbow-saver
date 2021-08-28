@@ -35,8 +35,8 @@ struct ExerciseTimerView: View {
                 Text(timeText)
                     .font(.largeTitle)
                     .padding()
-                Text(Strings.Timer.repCounter(currentRep: exerciseTimer.currentRep, totalRepsInSet: ExerciseTimerViewModel.repsPerSet))
-                Text(Strings.Timer.setCounter(currentSet: exerciseTimer.currentSet, totalSetsInSession: exerciseTimer.sessionSettings.totalNumberOfSets))
+                Text(Strings.Timer.repsCounter(currentRep: exerciseTimer.currentRep, totalRepsInSet: ExerciseTimerViewModel.repsPerSet))
+                Text(Strings.Timer.setsCounter(currentSet: exerciseTimer.currentSet, totalSetsInSession: exerciseTimer.sessionSettings.totalNumberOfSets))
             }
             .foregroundColor(.white)
         }
