@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6569765D26D9904B00373CDF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569765C26D9904B00373CDF /* Strings.swift */; };
+		658124EC26D8A76500B77892 /* ExerciseSessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658124EB26D8A76500B77892 /* ExerciseSessionSettings.swift */; };
+		658124EF26D98AE200B77892 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 658124F126D98AE200B77892 /* Localizable.strings */; };
 		65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */; };
-		65B1BB4826D429EA00334C74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4726D429EA00334C74 /* ContentView.swift */; };
+		65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */; };
 		65B1BB4A26D429EB00334C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4926D429EB00334C74 /* Assets.xcassets */; };
 		65B1BB4D26D429EB00334C74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */; };
 		65B1BB5726D429EB00334C74 /* Elbow_SaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB5626D429EB00334C74 /* Elbow_SaverTests.swift */; };
 		65B1BB6126D429EB00334C74 /* Elbow_SaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */; };
 		65B1BB6326D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */; };
+		65B1BB7126D4324200334C74 /* ExerciseTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7026D4324200334C74 /* ExerciseTimerViewModel.swift */; };
+		65B1BB7426D49D4B00334C74 /* TimerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1BB7326D49D4B00334C74 /* TimerArc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6569765C26D9904B00373CDF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = Resources/Strings.swift; sourceTree = "<group>"; };
+		658124EB26D8A76500B77892 /* ExerciseSessionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSessionSettings.swift; sourceTree = "<group>"; };
+		658124F026D98AE200B77892 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65B1BB4226D429EA00334C74 /* Elbow Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elbow Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverApp.swift; sourceTree = "<group>"; };
-		65B1BB4726D429EA00334C74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimerView.swift; sourceTree = "<group>"; };
 		65B1BB4926D429EB00334C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65B1BB4C26D429EB00334C74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		65B1BB5226D429EB00334C74 /* Elbow SaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +52,8 @@
 		65B1BB5C26D429EB00334C74 /* Elbow SaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elbow SaverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B1BB6026D429EB00334C74 /* Elbow_SaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITests.swift; sourceTree = "<group>"; };
 		65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elbow_SaverUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		65B1BB7026D4324200334C74 /* ExerciseTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimerViewModel.swift; sourceTree = "<group>"; };
+		65B1BB7326D49D4B00334C74 /* TimerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				65B1BB4426D429EA00334C74 /* Elbow Saver */,
+				658124F126D98AE200B77892 /* Localizable.strings */,
 				65B1BB5526D429EB00334C74 /* Elbow SaverTests */,
 				65B1BB5F26D429EB00334C74 /* Elbow SaverUITests */,
 				65B1BB4326D429EA00334C74 /* Products */,
@@ -95,9 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				65B1BB4526D429EA00334C74 /* Elbow_SaverApp.swift */,
-				65B1BB4726D429EA00334C74 /* ContentView.swift */,
+				65B1BB4726D429EA00334C74 /* ExerciseTimerView.swift */,
+				65B1BB7226D49D3B00334C74 /* Shapes */,
+				65B1BB6F26D4322900334C74 /* Models */,
 				65B1BB4926D429EB00334C74 /* Assets.xcassets */,
 				65B1BB4B26D429EB00334C74 /* Preview Content */,
+				6569765C26D9904B00373CDF /* Strings.swift */,
 			);
 			path = "Elbow Saver";
 			sourceTree = "<group>";
@@ -125,6 +139,23 @@
 				65B1BB6226D429EB00334C74 /* Elbow_SaverUITestsLaunchTests.swift */,
 			);
 			path = "Elbow SaverUITests";
+			sourceTree = "<group>";
+		};
+		65B1BB6F26D4322900334C74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB7026D4324200334C74 /* ExerciseTimerViewModel.swift */,
+				658124EB26D8A76500B77892 /* ExerciseSessionSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		65B1BB7226D49D3B00334C74 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				65B1BB7326D49D4B00334C74 /* TimerArc.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B1BB4D26D429EB00334C74 /* Preview Assets.xcassets in Resources */,
+				658124EF26D98AE200B77892 /* Localizable.strings in Resources */,
 				65B1BB4A26D429EB00334C74 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B1BB4826D429EA00334C74 /* ContentView.swift in Sources */,
+				65B1BB7426D49D4B00334C74 /* TimerArc.swift in Sources */,
+				65B1BB4826D429EA00334C74 /* ExerciseTimerView.swift in Sources */,
+				658124EC26D8A76500B77892 /* ExerciseSessionSettings.swift in Sources */,
+				65B1BB7126D4324200334C74 /* ExerciseTimerViewModel.swift in Sources */,
+				6569765D26D9904B00373CDF /* Strings.swift in Sources */,
 				65B1BB4626D429EA00334C74 /* Elbow_SaverApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +329,17 @@
 			targetProxy = 65B1BB5D26D429EB00334C74 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		658124F126D98AE200B77892 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				658124F026D98AE200B77892 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		65B1BB6426D429EB00334C74 /* Debug */ = {
