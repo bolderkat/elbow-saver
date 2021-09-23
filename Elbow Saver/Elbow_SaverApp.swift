@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ExerciseTimer
 
 @main
 struct Elbow_SaverApp: App {

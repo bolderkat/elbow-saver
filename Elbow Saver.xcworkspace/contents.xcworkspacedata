@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Elbow Saver Modules">
+   </FileRef>
+   <FileRef
       location = "container:Elbow Saver.xcodeproj">
    </FileRef>
 </Workspace>

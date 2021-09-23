@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExerciseTimerView: View {
+public struct ExerciseTimerView: View {
     private enum Parameters {
         static let arcStrokeWidth: CGFloat = 24.0
         static let arcPadding: CGFloat = 20.0
@@ -17,7 +17,9 @@ struct ExerciseTimerView: View {
     // Using temporary values for exercise session settings
     @StateObject private var exerciseTimer = ExerciseTimerViewModel()
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         ZStack {
             backgroundColor
                 .edgesIgnoringSafeArea(.all)
