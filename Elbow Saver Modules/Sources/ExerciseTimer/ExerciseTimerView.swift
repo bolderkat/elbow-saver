@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 public struct ExerciseTimerView: View {
     private enum Parameters {
@@ -14,50 +15,63 @@ public struct ExerciseTimerView: View {
         static let timerArcRotation: Double = -90.0
     }
     
-    // Using temporary values for exercise session settings
-    @StateObject private var exerciseTimer = ExerciseTimerViewModel()
+    let store: Store<ExerciseTimerState, ExerciseTimerAction>
+    let viewStore: ViewStore<ExerciseTimerState, ExerciseTimerAction>
     
-    public init() {}
+    public init() {
+        store = Store<ExerciseTimerState, ExerciseTimerAction>(
+            // Using temporary values for exercise session settings
+            initialState: ExerciseTimerState(),
+            reducer: exerciseTimerReducer,
+            environment: ExerciseTimerEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler())
+        )
+        viewStore = ViewStore(store)
+    }
     
     public var body: some View {
-        ZStack {
-            backgroundColor
-                .edgesIgnoringSafeArea(.all)
-            TimerArc(secondsRemaining: secondsRemaining, totalSeconds: totalSeconds)
-                .stroke(.white, lineWidth: Parameters.arcStrokeWidth)
-                .rotationEffect(Angle(degrees: Parameters.timerArcRotation))
-                .animation(.easeInOut)
-                .padding(Parameters.arcPadding)
-            VStack {
-                Text(timeText)
-                    .font(.largeTitle)
-                    .padding()
-                Text(ExerciseTimerStrings.repsCounter(currentRep: exerciseTimer.currentRep, totalRepsInSet: ExerciseTimerViewModel.repsPerSet))
-                Text(ExerciseTimerStrings.setsCounter(currentSet: exerciseTimer.currentSet, totalSetsInSession: exerciseTimer.totalNumberOfSets))
+        // TODO: dluo- limit viewStore scope to only what is necessary to render the view?
+        WithViewStore(store) { viewStore in
+            ZStack {
+                backgroundColor
+                    .edgesIgnoringSafeArea(.all)
+                TimerArc(secondsRemaining: secondsRemaining, totalSeconds: totalSeconds)
+                    .stroke(.white, lineWidth: Parameters.arcStrokeWidth)
+                    .rotationEffect(Angle(degrees: Parameters.timerArcRotation))
+                    .animation(.easeInOut)
+                    .padding(Parameters.arcPadding)
+                VStack {
+                    Text(timeText)
+                        .font(.largeTitle)
+                        .padding()
+                    Text(ExerciseTimerStrings.repsCounter(currentRep: viewStore.currentRep, totalRepsInSet: ExerciseTimerState.repsPerSet))
+                    Text(ExerciseTimerStrings.setsCounter(currentSet: viewStore.currentSet, totalSetsInSession: viewStore.totalNumberOfSets))
+                }
+                .foregroundColor(.white)
             }
-            .foregroundColor(.white)
-        }
-        .onAppear {
-            exerciseTimer.startSession()
+            .onAppear {
+                viewStore.send(.sessionStarted)
+            }
         }
     }
     
     private var timeText: String {
-        switch exerciseTimer.currentTimerState {
+        switch viewStore.currentTimerState {
         case .stopped:
             return ExerciseTimerStrings.stopped
         case .performingRep:
-            return "\(exerciseTimer.secondsRemainingForRep)"
+            return "\(viewStore.secondsRemainingForRep)"
         case .betweenReps:
             return ExerciseTimerStrings.reset.uppercased()
         case .betweenSets:
-            return ExerciseTimerStrings.restWith(timeRemaining: exerciseTimer.secondsRemainingInRestPeriod).uppercased()
+            return ExerciseTimerStrings.restWith(timeRemaining: viewStore.secondsRemainingInRestPeriod).uppercased()
+        case .finished:
+            return ExerciseTimerStrings.finished
         }
     }
     
     private var backgroundColor: Color {
-        switch exerciseTimer.currentTimerState {
-        case .stopped:
+        switch viewStore.currentTimerState {
+        case .stopped, .finished:
             return .red
         case .performingRep:
             return .green
@@ -70,25 +84,25 @@ public struct ExerciseTimerView: View {
     
     // For calculation of arc
     private var secondsRemaining: Int {
-        switch exerciseTimer.currentTimerState {
-        case .stopped:
+        switch viewStore.currentTimerState {
+        case .stopped, .finished:
             return 0
         case .performingRep, .betweenReps:
-            return exerciseTimer.secondsRemainingForRep
+            return viewStore.secondsRemainingForRep
         case .betweenSets:
-            return exerciseTimer.secondsRemainingInRestPeriod
+            return viewStore.secondsRemainingInRestPeriod
         }
     }
     
     // For calculation of arc
     private var totalSeconds: Int {
-        switch exerciseTimer.currentTimerState {
-        case .stopped:
+        switch viewStore.currentTimerState {
+        case .stopped, .finished:
             return 1
         case .performingRep, .betweenReps:
-            return ExerciseTimerViewModel.secondsPerRep
+            return ExerciseTimerState.secondsPerRep
         case .betweenSets:
-            return exerciseTimer.restPeriodInSeconds
+            return viewStore.restPeriodInSeconds
         }
     }
     

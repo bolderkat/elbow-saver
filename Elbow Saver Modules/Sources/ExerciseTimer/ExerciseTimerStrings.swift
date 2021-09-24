@@ -15,6 +15,13 @@ enum ExerciseTimerStrings {
         value: "Stopped",
         comment: "Timer is stopped, not currently running."
     )
+    static let finished = NSLocalizedString(
+        "ExerciseTimer.finished",
+        tableName: nil,
+        bundle: Bundle.main,
+        value: "Finished",
+        comment: "Timer has finished counting through the entire exercise session."
+    )
     static let reset = NSLocalizedString(
         "ExerciseTimer.reset",
         tableName: nil,
