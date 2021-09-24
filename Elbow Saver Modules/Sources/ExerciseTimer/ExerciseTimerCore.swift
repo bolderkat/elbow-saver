@@ -1,14 +1,14 @@
 //
-//  ExerciseTimerViewModel.swift
-//  ExerciseTimerViewModel
+//  ExerciseTimerCore.swift
+//  
 //
-//  Created by Daniel Luo on 8/23/21.
+//  Created by Daniel Luo on 9/23/21.
 //
 
 import Foundation
+import ComposableArchitecture
 
-class ExerciseTimerViewModel: ObservableObject {
-    
+public struct ExerciseTimerState: Equatable {
     // Fixed values, not user-adjustable
     /// The number of eccentric repetitions per set of exercise.
     static let repsPerSet: Int = 3
@@ -19,16 +19,15 @@ class ExerciseTimerViewModel: ObservableObject {
     
     /// Settings for session including total number of sets, rest period between sets.
     private let sessionSettings: ExerciseSessionSettings
-    var totalNumberOfSets: Int {
+    public var totalNumberOfSets: Int {
         sessionSettings.totalNumberOfSets
     }
-    var restPeriodInSeconds: Int {
+    public var restPeriodInSeconds: Int {
         sessionSettings.restPeriodInSeconds
     }
     
     /**
      Initialize a new exercise timer, guiding the user through exercise sesssion.
-     Call `startSession()` to begin timing the session.
      
      Currently initializes sessionSettings with sample values, eventually will pull settings from persistent store.
      */
@@ -38,18 +37,18 @@ class ExerciseTimerViewModel: ObservableObject {
     }
     
     /// The current set of exercise session
-    @Published private(set) var currentSet: Int = 1
+    public var currentSet: Int = 1
     /// The current repetition in the current set
-    @Published private(set) var currentRep: Int = 1
+    public var currentRep: Int = 1
     /// The number of seconds remaining for performance of each rep.
-    @Published private(set) var secondsRemainingForRep = secondsPerRep
+    public var secondsRemainingForRep = secondsPerRep
     /// The number of seconds remaining that the user has to return to the exercise start position
-    @Published private(set) var secondsRemainingBetweenReps = secondsBetweenReps
+    public var secondsRemainingBetweenReps = secondsBetweenReps
     /// The number of seconds remaining for the rest period
-    @Published private(set) var secondsRemainingInRestPeriod: Int
+    public var secondsRemainingInRestPeriod: Int
     
     /// The  possible states of the exercise timer.
-    enum TimerState {
+    public enum TimerState {
         /// Timer is not running.
         case stopped
         /// Timer is counting time for a rep.
@@ -58,33 +57,12 @@ class ExerciseTimerViewModel: ObservableObject {
         case betweenReps
         /// Timer is counting time in between two sets.
         case betweenSets
+        /// Timer has completed the entire session.
+        case finished
     }
-    @Published private(set) var currentTimerState: TimerState = .stopped
+    public var currentTimerState: TimerState = .stopped
     
-    private var timer: Timer?
-    private var frequency: TimeInterval = 1.0
-    private var setsCompleted = 0
-    
-    
-    /// Start the exercise session and timer
-    func startSession() {
-        guard setsCompleted < sessionSettings.totalNumberOfSets else { return }
-        currentTimerState = .performingRep
-        
-        timer = Timer.scheduledTimer(withTimeInterval: frequency, repeats: true) { [weak self] timer in
-            guard let self = self else { return }
-            self.update()
-        }
-    }
-    
-    /// Stop the exercise session and timer
-    func stopSession() {
-        timer?.invalidate()
-        timer = nil
-        currentTimerState = .stopped
-    }
-    
-    private func update() {
+    public mutating func update() {
         switch currentTimerState {
         case .stopped:
             return
@@ -114,29 +92,76 @@ class ExerciseTimerViewModel: ObservableObject {
             } else {
                 secondsRemainingInRestPeriod -= 1
             }
+        case .finished:
+            return
         }
     }
     
-    private func startNewRep() {
+    private mutating func startNewRep() {
         currentTimerState = .performingRep
         secondsRemainingForRep = Self.secondsPerRep
         secondsRemainingBetweenReps = Self.secondsBetweenReps
         currentRep += 1
     }
     
-    private func finishSet() {
-        setsCompleted += 1
-        if setsCompleted == sessionSettings.totalNumberOfSets {
-            stopSession()
+    private mutating func finishSet() {
+        if currentSet == sessionSettings.totalNumberOfSets {
+            currentTimerState = .finished
         } else {
             currentTimerState = .betweenSets
         }
     }
     
-    private func startNewSet() {
+    private mutating func startNewSet() {
         currentSet += 1
         currentRep = 0
         secondsRemainingInRestPeriod = sessionSettings.restPeriodInSeconds
         startNewRep()
+    }
+}
+
+public enum ExerciseTimerAction: Equatable {
+    /// Starts timer at beginning of session
+    case sessionStarted
+    case timerPaused
+    /// Resumes timer in the middle of a session (i.e., unpaused).
+    case timerResumed
+    case timerTicked
+    case stopButtonTapped
+}
+
+public struct ExerciseTimerEnvironment {
+    var mainQueue: AnySchedulerOf<DispatchQueue>
+}
+
+let exerciseTimerReducer = Reducer<ExerciseTimerState, ExerciseTimerAction, ExerciseTimerEnvironment> { state, action, environment in
+    struct TimerId: Hashable {}
+    let timerFrequency: DispatchQueue.SchedulerTimeType.Stride = 1
+    let timer = Effect.timer(id: TimerId(), every: timerFrequency, on: environment.mainQueue)
+        .map { _ in ExerciseTimerAction.timerTicked }
+    
+    switch action {
+    case .sessionStarted:
+        state.currentTimerState = .performingRep
+        return timer
+        
+    case .timerPaused:
+        return .none // placeholder
+        
+    case .timerResumed:
+        return timer
+        
+    case .timerTicked:
+        state.update()
+        if state.currentTimerState == .finished ||
+            state.currentTimerState == .stopped {
+            return .cancel(id: TimerId())
+        } else {
+            return .none
+        }
+        
+    case .stopButtonTapped:
+        state.currentTimerState = .stopped
+        return .cancel(id: TimerId())
     }
 }
