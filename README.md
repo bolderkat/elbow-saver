@@ -6,5 +6,8 @@ Elbow Saver is an app that guides users through rehabilitation exercises to reco
 
 At present, the app consists of the core timer that guides the user through the exercise timing and repetitions. Unit and integration tests ensure the timer functions as intended. 
 
-Future features to include detailed exercise instructions, exercise session logging, and pain level tracking over time.
+Future features to include:
+- Detailed exercise instructions
+- Exercise session logging
+- Pain level tracking over time
 
