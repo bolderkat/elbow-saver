@@ -161,7 +161,9 @@ let exerciseTimerReducer = Reducer<ExerciseTimerState, ExerciseTimerAction, Exer
         }
         
     case .stopButtonTapped:
-        state.currentTimerState = .stopped
+        if state.currentTimerState != .finished {
+            state.currentTimerState = .stopped
+        }
         return .cancel(id: TimerId())
     }
 }

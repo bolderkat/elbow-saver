@@ -3,21 +3,18 @@ import ComposableArchitecture
 @testable import ExerciseTimer
 
 
-final class ExerciseTimerTests: XCTestCase {
+final class ExerciseTimerIntegrationTests: XCTestCase {
+    // NB:- Syntax is a bit unusual if unfamilar with ComposableArchitecture.
+    // TestStore handles actions and compares its mutated state against
+    // the expected mutation passed in via the trailing closure.
+    // Absence of a closure is an assertion that there should be no state changes.
+    
     let scheduler = DispatchQueue.test
     
-    let store = TestStore(
-        initialState: ExerciseTimerState(),
-        reducer: exerciseTimerReducer,
-        environment: .init(mainQueue: DispatchQueue.test.eraseToAnyScheduler())
-    )
     
-    func testStartSession() {
-        store.send(.sessionStarted) { $0.currentTimerState = .performingRep }
-    }
     
     func testStartStopTimer() {
-        let timerStore = TestStore(
+        let store = TestStore(
             initialState: ExerciseTimerState(),
             reducer: exerciseTimerReducer,
             environment: .init(mainQueue: scheduler.eraseToAnyScheduler())
@@ -25,15 +22,15 @@ final class ExerciseTimerTests: XCTestCase {
         
         let expected = ExerciseTimerState().secondsRemainingForRep - 1
         
-        timerStore.send(.sessionStarted) { $0.currentTimerState = .performingRep }
+        store.send(.sessionStarted) { $0.currentTimerState = .performingRep }
         scheduler.advance(by: .seconds(1))
-        timerStore.receive(.timerTicked) { $0.secondsRemainingForRep = expected }
+        store.receive(.timerTicked) { $0.secondsRemainingForRep = expected }
         
         store.send(.stopButtonTapped) { $0.currentTimerState = .stopped }
     }
     
     func testOneRepAndReset() {
-        let timerStore = TestStore(
+        let store = TestStore(
             initialState: ExerciseTimerState(),
             reducer: exerciseTimerReducer,
             environment: .init(mainQueue: scheduler.eraseToAnyScheduler())
@@ -41,20 +38,20 @@ final class ExerciseTimerTests: XCTestCase {
         
         let secondsPerRep = ExerciseTimerState.secondsPerRep
         
-        timerStore.send(.sessionStarted) { $0.currentTimerState = .performingRep }
+        store.send(.sessionStarted) { $0.currentTimerState = .performingRep }
         for currentSecond in 1...secondsPerRep {
             scheduler.advance(by: .seconds(1))
-            timerStore.receive(.timerTicked) { $0.secondsRemainingForRep = secondsPerRep - currentSecond }
+            store.receive(.timerTicked) { $0.secondsRemainingForRep = secondsPerRep - currentSecond }
         }
         
         scheduler.advance(by: .seconds(1))
-        timerStore.receive(.timerTicked) {
+        store.receive(.timerTicked) {
             $0.currentTimerState = .betweenReps
             $0.secondsRemainingForRep = secondsPerRep
         }
         
         scheduler.advance(by: .seconds(1))
-        timerStore.receive(.timerTicked) {
+        store.receive(.timerTicked) {
             $0.currentTimerState = .performingRep
             $0.currentRep = 2
         }
@@ -63,7 +60,7 @@ final class ExerciseTimerTests: XCTestCase {
     }
     
     func testOneSet() {
-        let timerStore = TestStore(
+        let store = TestStore(
             initialState: ExerciseTimerState(),
             reducer: exerciseTimerReducer,
             environment: .init(mainQueue: scheduler.eraseToAnyScheduler())
@@ -72,26 +69,26 @@ final class ExerciseTimerTests: XCTestCase {
         let reps = ExerciseTimerState.repsPerSet
         let secondsPerRep = ExerciseTimerState.secondsPerRep
         
-        timerStore.send(.sessionStarted) { $0.currentTimerState = .performingRep }
+        store.send(.sessionStarted) { $0.currentTimerState = .performingRep }
         
         // Do every rep up to the last one
         for currentRep in 1..<reps {
             // Do a rep
             for currentSecond in 1...secondsPerRep {
                 scheduler.advance(by: .seconds(1))
-                timerStore.receive(.timerTicked) {
+                store.receive(.timerTicked) {
                     $0.secondsRemainingForRep = secondsPerRep - currentSecond
                 }
             }
             // Reset to next rep
             scheduler.advance(by: .seconds(1))
-            timerStore.receive(.timerTicked) {
+            store.receive(.timerTicked) {
                 $0.currentTimerState = .betweenReps
                 $0.secondsRemainingForRep = secondsPerRep
             }
             
             scheduler.advance(by: .seconds(1))
-            timerStore.receive(.timerTicked) {
+            store.receive(.timerTicked) {
                 $0.currentTimerState = .performingRep
                 $0.currentRep = currentRep + 1
             }
@@ -100,22 +97,22 @@ final class ExerciseTimerTests: XCTestCase {
         // Do final rep in set
         for currentSecond in 1...secondsPerRep {
             scheduler.advance(by: .seconds(1))
-            timerStore.receive(.timerTicked) {
+            store.receive(.timerTicked) {
                 $0.secondsRemainingForRep = secondsPerRep - currentSecond
             }
         }
         
         scheduler.advance(by: .seconds(1))
-        timerStore.receive(.timerTicked) {
+        store.receive(.timerTicked) {
             $0.currentTimerState = .betweenSets
         }
         
-        timerStore.send(.stopButtonTapped) { $0.currentTimerState = .stopped }
+        store.send(.stopButtonTapped) { $0.currentTimerState = .stopped }
     }
 
     
     func testRunEntireSession() {
-        let timerStore = TestStore(
+        let store = TestStore(
             initialState: ExerciseTimerState(),
             reducer: exerciseTimerReducer,
             environment: .init(mainQueue: scheduler.eraseToAnyScheduler())
@@ -130,7 +127,7 @@ final class ExerciseTimerTests: XCTestCase {
             // Loop through all seconds for duration of rep
             for currentSecond in 1...secondsPerRep {
                 scheduler.advance(by: .seconds(1))
-                timerStore.receive(.timerTicked) {
+                store.receive(.timerTicked) {
                     $0.secondsRemainingForRep = secondsPerRep - currentSecond
                 }
             }
@@ -144,14 +141,14 @@ final class ExerciseTimerTests: XCTestCase {
                 
                 // Begin reset sequence
                 scheduler.advance(by: .seconds(1))
-                timerStore.receive(.timerTicked) {
+                store.receive(.timerTicked) {
                     $0.currentTimerState = .betweenReps
                     $0.secondsRemainingForRep = secondsPerRep
                 }
                 
                 // Reset to next rep
                 scheduler.advance(by: .seconds(1))
-                timerStore.receive(.timerTicked) {
+                store.receive(.timerTicked) {
                     $0.currentTimerState = .performingRep
                     $0.currentRep = currentRep + 1
                 }
@@ -161,7 +158,7 @@ final class ExerciseTimerTests: XCTestCase {
             performRep()
         }
         
-        timerStore.send(.sessionStarted) { $0.currentTimerState = .performingRep }
+        store.send(.sessionStarted) { $0.currentTimerState = .performingRep }
         
         // Do every set up to the last one
         for currentSet in 1..<sets {
@@ -170,7 +167,7 @@ final class ExerciseTimerTests: XCTestCase {
             // Rest between sets
             for currentSecond in 0...secondsBetweenSets {
                 scheduler.advance(by: .seconds(1))
-                timerStore.receive(.timerTicked) {
+                store.receive(.timerTicked) {
                     $0.currentTimerState = .betweenSets
                     $0.secondsRemainingInRestPeriod = secondsBetweenSets - currentSecond
                 }
@@ -178,7 +175,7 @@ final class ExerciseTimerTests: XCTestCase {
             
             // Reset to next set
             scheduler.advance(by: .seconds(1))
-            timerStore.receive(.timerTicked) {
+            store.receive(.timerTicked) {
                 $0.currentTimerState = .performingRep
                 $0.currentSet = currentSet + 1
                 $0.currentRep = 1
@@ -191,10 +188,12 @@ final class ExerciseTimerTests: XCTestCase {
         performSet()
         
         scheduler.advance(by: .seconds(1))
-        timerStore.receive(.timerTicked) {
+        store.receive(.timerTicked) {
             $0.currentTimerState = .finished
         }
         
-        timerStore.send(.stopButtonTapped) { $0.currentTimerState = .stopped }
+        // ComposableArchitecture requires all effects to finish/be handled in tests, so we have to stop the timer.
+        // TODO: dluo - see if there is a way to cancel the timer so we don't have to send this at the end.
+        store.send(.stopButtonTapped) { $0.currentTimerState = .finished }
     }
 }
